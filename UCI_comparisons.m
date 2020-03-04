@@ -15,14 +15,20 @@ data_path = './data';  %% Your path to data goes here
 addpath(data_path);
 
 
+% run these blocks 10 times for k fold
+% generate sampled train and provide remaining unsample test data
+
 %% IRIS dataset
-load irisData 
+load irisData
+load irisdata_gram.mat
 N = size(X,1);
 X = bsxfun(@minus, X, mean(X,1));
 stdX = std(X);
 X = bsxfun(@rdivide, X, stdX);
 X(:,stdX == 0) = 0;
-runAllMethods;
+
+sampleAndClassify;
+
 save results_irisData acc;
 clear all
 clc
@@ -30,13 +36,16 @@ clc
 
 
 %% Ionosphere dataset
-load ionosphereData 
+load ionosphereData
+load ionospheredata_gram.mat
 N = size(X,1);
 X = bsxfun(@minus, X, mean(X,1));
 stdX = std(X);
 X = bsxfun(@rdivide, X, stdX);
 X(:,stdX == 0) = 0;
-runAllMethods;
+
+sampleAndClassify;
+
 save results_ionosphereData acc;
 clear all
 clc
@@ -44,13 +53,16 @@ clc
 
 
 %% Balance Scale dataset
-load balanceData 
+load balanceData
+load balancedata_gram.mat
 N = size(X,1);
 X = bsxfun(@minus, X, mean(X,1));
 stdX = std(X);
 X = bsxfun(@rdivide, X, stdX);
 X(:,stdX == 0) = 0;
-runAllMethods;
+
+sampleAndClassify;
+
 save results_balanceData acc;
 clear all
 clc
@@ -58,13 +70,16 @@ clc
 
 
 %% Wine Data
-load winedata;
+load wineData;
+load winedata_gram.mat
 N = size(X,1);
 X = bsxfun(@minus, X, mean(X,1));
 stdX = std(X);
 X = bsxfun(@rdivide, X, stdX);
 X(:,stdX == 0) = 0;
-runAllMethods;
+
+sampleAndClassify;
+
 save results_wineData acc;
 clear all
 clc

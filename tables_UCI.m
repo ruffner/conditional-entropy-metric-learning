@@ -1,11 +1,11 @@
 
 methods = {'CEML(proposed method)','ITML','NCA','MCML','LMNN','invCov','Euclidean'};
 datasets = {'Wine','Ionosphere','Scale','Iris'};
-load results_wineData_perm
+load results_wineData
 errors = [mean([acc.CEML])  mean([acc.ITML]) mean([acc.NCA]) mean([acc.MCML]) mean([acc.LMNN]) mean([acc.invCov]) mean([acc.Euclidean])]; 
-load results_ionosphereData_perm
+load results_ionosphereData
 errors = [ errors; [mean([acc.CEML])  mean([acc.ITML]) mean([acc.NCA]) mean([acc.MCML]) mean([acc.LMNN]) mean([acc.invCov]) mean([acc.Euclidean])] ]; 
-load results_balanceData_perm
+load results_balanceData
 errors = [ errors; [mean([acc.CEML])  mean([acc.ITML]) mean([acc.NCA]) mean([acc.MCML]) mean([acc.LMNN]) mean([acc.invCov]) mean([acc.Euclidean])] ]; 
 load results_irisData
 errors = [ errors; [mean([acc.CEML])  mean([acc.ITML]) mean([acc.NCA]) mean([acc.MCML]) mean([acc.LMNN]) mean([acc.invCov]) mean([acc.Euclidean])] ]; 
