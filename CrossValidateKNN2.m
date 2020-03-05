@@ -23,15 +23,15 @@ function [acc, pred] = CrossValidateKNN2(y, X, tCL, knn_size, yTest, xTest)
 k=1;
 
 [n,m] = size(X);
-if (n ~= length(y)),
+if (n ~= length(y))
    disp('ERROR: num rows of X must equal length of y');
    return;
 end
 
 %permute the rows of X and y
-rp = randperm(n);
-y = y(rp);
-X = X(rp, :);
+% rp = randperm(n);
+% y = y(rp);
+% X = X(rp, :);
 
 %pred = zeros(n,1);
 % for (i=1:k),

@@ -12,7 +12,7 @@ for i  = 1:num_runs
   
     
     %%% Conditional Entropy Metric Learning (Proposed Method)
-    %d_y = 3;
+    d_y = 3;
     d_y = length(unique(labels_orig));
     sigma = sqrt(d_y);
     alpha = 1.01;
