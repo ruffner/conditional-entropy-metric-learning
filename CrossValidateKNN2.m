@@ -66,6 +66,10 @@ end
 %    yT =  y(test_start:test_end);
 
 %    pred(test_start:test_end) = KNN(yt, Xt, sqrtm(M), knn_size, XT); 
-   pred = KNN(y, X, sqrtm(M), knn_size, xTest); 
+
+    Mdl = fitcknn(X, y, 'NumNeighbors', knn_size);
+    pred = predict(Mdl, xTest);
+
+   %pred = KNN(y, X, sqrtm(M), knn_size, xTest); 
 % end
-acc = sum(pred==yTest)/n;
+acc = sum(pred==yTest)/length(yTest);
